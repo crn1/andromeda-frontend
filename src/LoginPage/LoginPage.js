@@ -40,12 +40,16 @@ const useStyles = makeStyles(theme => ({
 		paddingTop: theme.spacing(8),
 		marginBottom: theme.spacing(8),
 	},
+
+	desc: {
+		paddingTop: theme.spacing(4),
+	}
 }));
 
 const LoginPage = (props) => {
 
-	const [usernameValue, setUsernameValue] = useState('');
-	const [passwordValue, setPasswordValue] = useState('');
+	const [usernameValue, setUsernameValue] = useState('john@yourcompany.com');
+	const [passwordValue, setPasswordValue] = useState('veryweakpassword');
 	const [rememberMeChecked, setRememberMeChecked] = useState(false);
 
 	const classes = useStyles();
@@ -70,10 +74,7 @@ const LoginPage = (props) => {
 					xs={12} sm={6} lg={3} xl={2}
 				>
 					<Typography component='div' className={classes.logo} variant='h4'>
-						ANDROMEDA
-						<Typography component='p' variant='caption'>
-							Pre-alpha
-						</Typography>
+						YourCompany
 					</Typography>
 
 					<UsernameTextField
@@ -93,7 +94,9 @@ const LoginPage = (props) => {
 						passwordValue={passwordValue}
 						rememberMeChecked={rememberMeChecked}
 					/>
-
+					<Typography component='p' variant='caption'>
+						For demonstration purposes only.
+					</Typography>
 				</Grid>
 			</Grid>
 		</div>

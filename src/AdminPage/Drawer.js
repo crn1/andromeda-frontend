@@ -18,6 +18,9 @@ import CategoryIcon from '@material-ui/icons/Category';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SettingsApplicationsIcon from '@material-ui/icons/SettingsApplications';
 import HelpIcon from '@material-ui/icons/Help';
+import CommentIcon from '@material-ui/icons/Comment';
+import GalleryIcon from '@material-ui/icons/Photo';
+import TagIcon from '@material-ui/icons/LocalOffer';
 
 const useStyles = makeStyles(theme => ({
 	toolbar: theme.mixins.toolbar,
@@ -38,11 +41,11 @@ const ResponsiveDrawer = (props) => {
     <>
       <div className={clsx(classes.toolbar, classes.title)}>
 				<Typography component='div' variant='h6'>
-					Andromeda AP
+					YourCompany
 				</Typography>
 			</div>
 			<Divider />
-			<List>
+			<List dense>
 				<ListItem
 						button
 						key={'drawer-dashboard'}
@@ -54,7 +57,7 @@ const ResponsiveDrawer = (props) => {
 				</ListItem>
 			</List>
 			<Divider />
-			<List subheader={
+			<List dense subheader={
 				<ListSubheader component='div'>
 					Blog
 				</ListSubheader>
@@ -68,57 +71,69 @@ const ResponsiveDrawer = (props) => {
 					</ListItemIcon>
 					<ListItemText primary={'Posts'} />
 				</ListItem>
-				{ currentUser.roles.some(e => e.name === 'ADMIN') ?
-					<ListItem
-							button
-							key={'drawer-categories'}
-							onClick={() => props.history.push('/categories')}>
-						<ListItemIcon>
-							<CategoryIcon />
-						</ListItemIcon>
-						<ListItemText primary={'Categories'} />
-					</ListItem> : null
-				}
+				<ListItem
+						button
+						key={'drawer-categories'}
+						onClick={() => props.history.push('/categories')}>
+					<ListItemIcon>
+						<CategoryIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Categories'} />
+				</ListItem>
+				<ListItem button key={'drawer-tags'}>
+					<ListItemIcon>
+						<TagIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Tags'} />
+				</ListItem>
+				<ListItem button key={'drawer-gallery'}>
+					<ListItemIcon>
+						<GalleryIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Gallery'} />
+				</ListItem>
+				<ListItem button key={'drawer-comments'}>
+					<ListItemIcon>
+						<CommentIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Comments'} />
+				</ListItem>
 			</List>
-			{ currentUser.roles.some(e => e.name === 'ADMIN') ?
-				<>
-					<Divider />
-					<List subheader={
-							<ListSubheader component='div'>
-								Misc
-							</ListSubheader>
-					}>
-						<ListItem
-								button
-								key={'drawer-users'}
-								onClick={() => props.history.push('/users')}
-						>
-							<ListItemIcon>
-								<PersonIcon />
-							</ListItemIcon>
-							<ListItemText primary={'Users'} />
-						</ListItem>
-						<ListItem disabled button key={'drawer-filemanager'}>
-							<ListItemIcon>
-								<CloudUploadIcon />
-							</ListItemIcon>
-							<ListItemText primary={'File Manager'} />
-						</ListItem>
-						<ListItem disabled button key={'drawer-settings'}>
-							<ListItemIcon>
-								<SettingsApplicationsIcon />
-							</ListItemIcon>
-							<ListItemText primary={'Site settings'} />
-						</ListItem>
-						<ListItem disabled button key={'drawer-faq'}>
-							<ListItemIcon>
-								<HelpIcon />
-							</ListItemIcon>
-							<ListItemText primary={'FAQ'} />
-						</ListItem>
-					</List>
-				</> : null
-			}
+			<Divider />
+			<List dense subheader={
+					<ListSubheader component='div'>
+						Misc
+					</ListSubheader>
+			}>
+				<ListItem
+						button
+						key={'drawer-users'}
+						onClick={() => props.history.push('/users')}
+				>
+					<ListItemIcon>
+						<PersonIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Users'} />
+				</ListItem>
+				<ListItem button key={'drawer-filemanager'}>
+					<ListItemIcon>
+						<CloudUploadIcon />
+					</ListItemIcon>
+					<ListItemText primary={'File Manager'} />
+				</ListItem>
+				<ListItem button key={'drawer-settings'}>
+					<ListItemIcon>
+						<SettingsApplicationsIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Site settings'} />
+				</ListItem>
+				<ListItem button key={'drawer-faq'}>
+					<ListItemIcon>
+						<HelpIcon />
+					</ListItemIcon>
+					<ListItemText primary={'FAQ'} />
+				</ListItem>
+			</List>
     </>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useGlobal } from 'reactn';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
 
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
@@ -25,49 +24,12 @@ const PostEditPage = (props) => {
 	const [categoryOptions, setCategoryOptions] = useState([{ value: null, label: null }]);
 
 	const mapCategories = () => {
-		axios({
-			method: 'GET',
-			url: `http://localhost:5000/category`,
-		}).then(res => {
-			setCategoryOptions(res.data.data.items.map(item => {
-				return { value: item.id, label: item.name }
-			}));
-		});
+		setCategoryOptions({ value: 1, label: 'Category 1' });
 	}
 
 	const mapAuthors = () => {
-		axios({
-			method: 'GET',
-			url: `http://localhost:5000/user`,
-		}).then(res => {
-			setAuthorOptions(res.data.data.items.map(item => {
-				return { value: item.id, label: item.fullname }
-			}));
-		});
+		setAuthorOptions({ value: 1, label: 'John Smith' });
 	}
-
-	useEffect(() => {
-		if(props.method === 'PATCH')
-		{
-			axios({
-				method: 'GET',
-				url: `http://localhost:5000/post/id/${props.match.params.postId}`,
-			}).then(res => {
-				setTitle(res.data.data.title);
-				setCategoryId(res.data.data.category.id);
-				setAuthorId(res.data.data.author.id);
-				setDate(res.data.data.date);
-				setContent(res.data.data.content);
-				setDescription(res.data.data.description);
-			});
-		}
-
-		mapCategories();
-		if(currentUser.roles.some(role => role.name === 'ADMIN'))
-		{
-			mapAuthors();
-		}
-	}, []);
 
 	return (
 		<Grid container direction='column' spacing={2}>

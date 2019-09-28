@@ -21,12 +21,8 @@ const AdminPage = (props) => {
 	return (
 		<Wrapper title={pageTitle}>
 			<Switch>
-				{ currentUser.roles.some(role => role.name === 'ADMIN') ?
-						<Route path={`${props.match.path}users`} component={UsersPage} /> : null
-				}
-				{ currentUser.roles.some(role => role.name === 'ADMIN') ?
-						<Route path={`${props.match.path}categories`} component={CategoriesPage} /> : null
-				}
+				<Route path={`${props.match.path}users`} component={UsersPage} /> : null
+				<Route path={`${props.match.path}categories`} component={CategoriesPage} /> : null
 				<Route path={`${props.match.path}currentUser`} component={Edit} />
 				<Route path={`${props.match.path}posts`} component={PostsPage} />
 				<Route exact path={props.match.path} component={Welcome} />

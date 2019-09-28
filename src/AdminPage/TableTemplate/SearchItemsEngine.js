@@ -2,7 +2,6 @@ import React, { useState, useEffect, createElement } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import qs from 'query-string';
-import axios from 'axios';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -22,16 +21,85 @@ const SearchItemsEngine = (props) => {
 	}));
 
 	const getData = () => {
-		axios({
-			method: 'GET',
-			url: `http://localhost:5000/${props.target}?${tags}`,
-		}).then(res => {
-			setData(res.data.data.items);
-			setTotal(res.data.data.total_prefiltered);
-		});
 	}
+
 	const [data, setData] = useState([]);
 	const [total, setTotal] = useState(0);
+
+	useEffect(() => {
+		switch(props.target)
+		{
+			case 'post':
+				setData([
+					{
+						title: 'Sample Title 1',
+						author: {
+							id: 1,
+							fullname: 'John Smith',
+						},
+						category: {
+							id: 1,
+							name: 'Sample Category',
+						},
+						description: 'This is description of post.',
+					},
+					{
+						title: 'Sample Title 2',
+						author: {
+							id: 1,
+							fullname: 'John Smith',
+						},
+						category: {
+							id: 1,
+							name: 'Sample Category',
+						},
+						description: 'This is description of post.',
+					},
+				]);
+				break;
+			case 'category':
+				setData([
+					{
+						id: 1,
+						name: 'Sample Category 1',
+					},
+					{
+						id: 2,
+						name: 'Sample Category 2',
+					},
+					{
+						id: 3,
+						name: 'Sample Category 3',
+					},
+					{
+						id: 4,
+						name: 'Sample Category 4',
+					},
+				]);
+				break;
+			case 'user':
+				setData([
+					{
+						id: 1,
+						fullname: 'John Smith',
+						email: 'john@yourcompany.com',
+						description: 'This is description of John. He is very nice fella.',
+					},
+					{
+						id: 1,
+						fullname: 'Fred Bloggs',
+						email: 'john@yourcompany.com',
+						description: 'This is description of Fred. He is very charismatic fella.',
+					},
+					{
+						id: 1,
+						fullname: 'Marry Doe',
+						email: 'john@yourcompany.com',
+						description: 'This is description of Jane. She is very smart gal.',
+					},
+				]);
+		}
+	}, []);
 
 	useEffect(() => {
 		setTags(qs.stringify({

@@ -37,8 +37,6 @@ const ConfirmTogglePublishDialog = (props) => {
 			<DialogTitle id='alert-dialog-slide-title'>{props.isPublished ? 'Unpublish this item?' : 'Publish this item'}</DialogTitle>
 			<DialogContent>
 				<DialogContentText id='alert-dialog-slide-description'>
-					Let Google help apps determine location. This means sending anonymous location data to
-					Google, even when no apps are running.
 				</DialogContentText>
 			</DialogContent>
 			<DialogActions>

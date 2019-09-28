@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useGlobal } from 'reactn';
 import { withRouter } from 'react-router-dom';
-import axios from 'axios';
 
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -34,43 +33,6 @@ const UserEditPage = (props) => {
 	}
 
 	useEffect(() => { setPageTitle('Edit User'); }, []);
-
-	useEffect(() => {
-		if(props.method === 'PATCH')
-		{
-			axios({
-				method: 'GET',
-				url: `http://localhost:5000/user/${isCurrentUserPage ? currentUser.id : props.match.params.userId}`,
-			}).then(res => {
-				setFullname(res.data.data.fullname);
-				setEmail(res.data.data.email);
-				setDescription(res.data.data.description);
-				setUserRoles(res.data.data.roles);
-				setUserId(res.data.data.id);
-			});
-		}else if(props.method === 'POST')
-		{
-			setUserRoles([]);
-		}
-	}, []);
-
-	const setUserRoles = (userRoles) =>
-	{
-		axios.get('http://localhost:5000/role').then(res => {
-			let roles = res.data.data.items;
-			setRoles(roles.map(role =>
-			{
-				for(var i = 0; i < userRoles.length; i++)
-				{
-					if(userRoles[i].role_id === role.id)
-					{
-						return { ...role, selected: true, userRoleId: userRoles[i].user_role_id }
-					}
-				}
-				return { ...role, selected: false, userRoleId: null }
-			}));
-		});
-	}
 
 	return (
 		<Grid container direction='column' spacing={4}>
