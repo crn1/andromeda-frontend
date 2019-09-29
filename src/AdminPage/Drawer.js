@@ -21,6 +21,11 @@ import HelpIcon from '@material-ui/icons/Help';
 import CommentIcon from '@material-ui/icons/Comment';
 import GalleryIcon from '@material-ui/icons/Photo';
 import TagIcon from '@material-ui/icons/LocalOffer';
+import HomeIcon from '@material-ui/icons/Home';
+import SupportIcon from '@material-ui/icons/ContactSupport';
+import FAQIcon from '@material-ui/icons/QuestionAnswer';
+import ContactIcon from '@material-ui/icons/ContactMail';
+import ProductIcon from '@material-ui/icons/DevicesOther';
 
 const useStyles = makeStyles(theme => ({
 	toolbar: theme.mixins.toolbar,
@@ -54,6 +59,58 @@ const ResponsiveDrawer = (props) => {
 						<DashboardIcon />
 					</ListItemIcon>
 					<ListItemText primary={'Dashboard'} />
+				</ListItem>
+			</List>
+			<Divider />
+			<List dense subheader={
+					<ListSubheader component='div'>
+						Pages
+					</ListSubheader>
+			}>
+				<ListItem
+						button
+						key={'drawer-home'}
+						onClick={() => props.history.push('/')}>
+					<ListItemIcon>
+						<HomeIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Home'} />
+				</ListItem>
+				<ListItem
+						button
+						key={'drawer-products'}
+						onClick={() => props.history.push('/')}>
+					<ListItemIcon>
+						<ProductIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Products'} />
+				</ListItem>
+				<ListItem
+						button
+						key={'drawer-contact'}
+						onClick={() => props.history.push('/')}>
+					<ListItemIcon>
+						<ContactIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Contact'} />
+				</ListItem>
+				<ListItem
+						button
+						key={'drawer-faqs'}
+						onClick={() => props.history.push('/')}>
+					<ListItemIcon>
+						<FAQIcon />
+					</ListItemIcon>
+					<ListItemText primary={'FAQs'} />
+				</ListItem>
+				<ListItem
+						button
+						key={'drawer-support'}
+						onClick={() => props.history.push('/')}>
+					<ListItemIcon>
+						<SupportIcon />
+					</ListItemIcon>
+					<ListItemText primary={'Support'} />
 				</ListItem>
 			</List>
 			<Divider />
@@ -125,13 +182,13 @@ const ResponsiveDrawer = (props) => {
 					<ListItemIcon>
 						<SettingsApplicationsIcon />
 					</ListItemIcon>
-					<ListItemText primary={'Site settings'} />
+					<ListItemText primary={'Site Settings'} />
 				</ListItem>
 				<ListItem button key={'drawer-faq'}>
 					<ListItemIcon>
 						<HelpIcon />
 					</ListItemIcon>
-					<ListItemText primary={'FAQ'} />
+					<ListItemText primary={'Help & FAQs'} />
 				</ListItem>
 			</List>
     </>
