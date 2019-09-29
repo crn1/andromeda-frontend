@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/andromeda-frontend/static/js/main.74b342b5.chunk.js",
+    "main.js.map": "/andromeda-frontend/static/js/main.74b342b5.chunk.js.map",
+    "runtime~main.js": "/andromeda-frontend/static/js/runtime~main.62f503cc.js",
+    "runtime~main.js.map": "/andromeda-frontend/static/js/runtime~main.62f503cc.js.map",
+    "static/css/2.4b3ccb6c.chunk.css": "/andromeda-frontend/static/css/2.4b3ccb6c.chunk.css",
+    "static/js/2.cec2132f.chunk.js": "/andromeda-frontend/static/js/2.cec2132f.chunk.js",
+    "static/js/2.cec2132f.chunk.js.map": "/andromeda-frontend/static/js/2.cec2132f.chunk.js.map",
+    "index.html": "/andromeda-frontend/index.html",
+    "precache-manifest.fac29660860c1d351d0e57761fbd780b.js": "/andromeda-frontend/precache-manifest.fac29660860c1d351d0e57761fbd780b.js",
+    "service-worker.js": "/andromeda-frontend/service-worker.js",
+    "static/css/2.4b3ccb6c.chunk.css.map": "/andromeda-frontend/static/css/2.4b3ccb6c.chunk.css.map",
+    "static/media/picture1.jpg": "/andromeda-frontend/static/media/picture1.ee6a3a58.jpg",
+    "static/media/picture10.jpg": "/andromeda-frontend/static/media/picture10.fb215782.jpg",
+    "static/media/picture2.jpg": "/andromeda-frontend/static/media/picture2.55720bd6.jpg",
+    "static/media/picture3.jpg": "/andromeda-frontend/static/media/picture3.c3b50d56.jpg",
+    "static/media/picture4.jpg": "/andromeda-frontend/static/media/picture4.9f52efb7.jpg",
+    "static/media/picture5.jpg": "/andromeda-frontend/static/media/picture5.6c837d66.jpg",
+    "static/media/picture6.jpg": "/andromeda-frontend/static/media/picture6.4379f2a8.jpg",
+    "static/media/picture7.jpg": "/andromeda-frontend/static/media/picture7.363ffe66.jpg",
+    "static/media/picture8.jpg": "/andromeda-frontend/static/media/picture8.60d49551.jpg",
+    "static/media/picture9.jpg": "/andromeda-frontend/static/media/picture9.3c89df65.jpg"
+  }
+}
