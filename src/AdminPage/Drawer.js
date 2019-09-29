@@ -143,7 +143,10 @@ const ResponsiveDrawer = (props) => {
 					</ListItemIcon>
 					<ListItemText primary={'Tags'} />
 				</ListItem>
-				<ListItem button key={'drawer-gallery'}>
+				<ListItem
+						button
+						onClick={() => props.history.push('/gallery')}
+						key={'drawer-gallery'}>
 					<ListItemIcon>
 						<GalleryIcon />
 					</ListItemIcon>

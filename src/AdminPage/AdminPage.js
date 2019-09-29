@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import UsersPage from './UsersPage/UsersPage';
 import CategoriesPage from './CategoriesPage/CategoriesPage';
 import PostsPage from './PostsPage/PostsPage';
+import GalleryPage from './GalleryPage';
 import UserEditPage from './UsersPage/UserEditPage';
 import Wrapper from './Wrapper';
 
@@ -25,6 +26,7 @@ const AdminPage = (props) => {
 				<Route path={`${props.match.path}categories`} component={CategoriesPage} /> : null
 				<Route path={`${props.match.path}currentUser`} component={Edit} />
 				<Route path={`${props.match.path}posts`} component={PostsPage} />
+				<Route path={`${props.match.path}gallery`} component={GalleryPage} />
 				<Route exact path={props.match.path} component={Welcome} />
 			</Switch>
 		</Wrapper>
