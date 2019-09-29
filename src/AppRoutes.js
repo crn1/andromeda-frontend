@@ -1,5 +1,5 @@
 import React, { useGlobal } from 'reactn';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import AdminPage from './AdminPage/AdminPage';
 import LoginPage from './LoginPage/LoginPage';
@@ -35,7 +35,7 @@ const AppRoutes = props => {
 	const [currentUser] = useGlobal('currentUser');
 
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Switch>
 				<Route
 					path='/login'
@@ -46,7 +46,7 @@ const AppRoutes = props => {
 					component={() => AdminRoute(currentUser.authenticated)}
 				/>
 			</Switch>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
 
